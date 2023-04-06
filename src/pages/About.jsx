@@ -28,7 +28,7 @@ const About = () => {
           </div>
         </div>
         <div className='flex-1 px-6 flex justify-center'>
-          <div className='h-[20rem] w-[20rem] overflow-hidden rounded-[20px]'>
+          <div className='h-[20rem] w-[20rem] overflow-hidden rounded-[20px] shadow-xl border-4'>
             <img
               src={baseUrl + "/fha-appraisals.jpg"}
               alt=''
