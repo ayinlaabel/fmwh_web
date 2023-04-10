@@ -1,8 +1,16 @@
-import { Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 
 const baseUrl = process.env.PUBLIC_URL;
 
 const Navbar = () => {
+  const location = useLocation();
+  const [url, setUrl] = useState(null);
+
+  useEffect(() => {
+    setUrl(location.pathname);
+  }, [location]);
+
   return (
     <>
       <header className='h-fit w-full'>
@@ -33,22 +41,68 @@ const Navbar = () => {
             />
           </div>
           <ul className='flex w-fit text-[14px]'>
-            <li className='w-fit px-3 text-white font-medium'>
+            <li
+              className={
+                "w-fit px-3 " +
+                `${url === "/" ? "font-medium text-white" : "text-[#56876D]"}`
+              }
+            >
               <a href='/'>Home</a>
             </li>
-            <li className='w-fit px-3 text-[#56876D]'>
+            <li
+              className={
+                "w-fit px-3 " +
+                `${
+                  url === "/about-us"
+                    ? "font-medium text-white"
+                    : "text-[#56876D]"
+                }`
+              }
+            >
               <a href='/about-us'>About Us</a>
             </li>
-            <li className='w-fit px-3 text-[#56876D]'>
+            <li
+              className={
+                "w-fit px-3 " +
+                `${
+                  url === "/unit" ? "font-medium text-white" : "text-[#56876D]"
+                }`
+              }
+            >
               <a href='/unit'>Unit</a>
             </li>
-            <li className='w-fit px-3 text-[#56876D]'>
+            <li
+              className={
+                "w-fit px-3 " +
+                `${
+                  url === "/our-processes"
+                    ? "font-medium text-white"
+                    : "text-[#56876D]"
+                }`
+              }
+            >
               <a href='/our-processes'>Our Processes</a>
             </li>
-            <li className='w-fit px-3 text-[#56876D]'>
+            <li
+              className={
+                "w-fit px-3 " +
+                `${
+                  url === "/help" ? "font-medium text-white" : "text-[#56876D]"
+                }`
+              }
+            >
               <a href='/help'>Help</a>
             </li>
-            <li className='w-fit px-3 text-[#56876D]'>
+            <li
+              className={
+                "w-fit px-3 " +
+                `${
+                  url === "/contact-us"
+                    ? "font-medium text-white"
+                    : "text-[#56876D]"
+                }`
+              }
+            >
               <a href='/contact-us'>Contact Us</a>
             </li>
           </ul>
